@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -13,6 +13,7 @@ const testimonials = [
     rating: 5,
     device: "iPhone 14 Pro",
     initial: "MA",
+    color: "from-violet-500 to-purple-600",
   },
   {
     name: "Fatima Siddiqui",
@@ -21,6 +22,7 @@ const testimonials = [
     rating: 5,
     device: "iPhone 13",
     initial: "FS",
+    color: "from-pink-500 to-rose-500",
   },
   {
     name: "Usman Tariq",
@@ -29,6 +31,7 @@ const testimonials = [
     rating: 5,
     device: "Samsung S23",
     initial: "UT",
+    color: "from-sky-500 to-blue-600",
   },
   {
     name: "Sara Khurram",
@@ -37,6 +40,7 @@ const testimonials = [
     rating: 5,
     device: "Xiaomi 13",
     initial: "SK",
+    color: "from-emerald-500 to-teal-600",
   },
   {
     name: "Bilal Rashid",
@@ -45,6 +49,7 @@ const testimonials = [
     rating: 5,
     device: "Samsung A54",
     initial: "BR",
+    color: "from-amber-500 to-orange-500",
   },
   {
     name: "Zainab Ali",
@@ -53,6 +58,7 @@ const testimonials = [
     rating: 5,
     device: "Oppo Reno 10",
     initial: "ZA",
+    color: "from-fuchsia-500 to-purple-600",
   },
 ];
 
@@ -60,7 +66,7 @@ function Stars({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} size={13} className={i < count ? "text-amber-400 fill-amber-400" : "text-gray-200"} />
+        <Star key={i} size={12} className={i < count ? "text-amber-400 fill-amber-400" : "text-gray-200 fill-gray-200"} />
       ))}
     </div>
   );
@@ -79,25 +85,42 @@ export default function TestimonialsCarousel() {
     >
       {testimonials.map((t, i) => (
         <SwiperSlide key={i} className="h-auto">
-          <div className="card h-full flex flex-col p-6 bg-white">
-            <div className="flex items-start justify-between mb-4">
-              <Stars count={t.rating} />
-              <Quote size={18} className="text-[#9a5bff]/25" />
+          <div className="card h-full flex flex-col p-6 relative overflow-hidden">
+            {/* Subtle top gradient line */}
+            <div
+              className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${t.color}`}
+            />
+
+            {/* Quote mark */}
+            <div
+              className="absolute top-4 right-5 text-6xl font-serif leading-none pointer-events-none select-none"
+              style={{ color: "rgba(154,91,255,0.08)" }}
+            >
+              &ldquo;
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed flex-1 mb-6">
+
+            {/* Stars */}
+            <div className="flex items-center justify-between mb-4">
+              <Stars count={t.rating} />
+              <span className="text-gray-300 text-[10px] font-bold border border-gray-100 bg-gray-50 px-2 py-0.5 rounded-lg">
+                {t.device}
+              </span>
+            </div>
+
+            {/* Review */}
+            <p className="text-gray-600 text-sm leading-relaxed flex-1 mb-5">
               &ldquo;{t.review}&rdquo;
             </p>
+
+            {/* Author */}
             <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-              <div className="w-10 h-10 rounded-full bg-[#9a5bff]/10 border border-[#9a5bff]/20 flex items-center justify-center text-[#9a5bff] font-bold text-xs shrink-0">
+              <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center text-white font-extrabold text-xs shrink-0 shadow-sm`}>
                 {t.initial}
               </div>
               <div>
-                <p className="text-gray-900 text-sm font-semibold leading-none">{t.name}</p>
-                <p className="text-gray-400 text-xs mt-1">{t.location}</p>
+                <p className="text-gray-900 text-sm font-bold leading-none">{t.name}</p>
+                <p className="text-gray-400 text-[11px] mt-1">{t.location}</p>
               </div>
-              <span className="ml-auto text-gray-400 text-xs border border-gray-100 bg-gray-50 px-2 py-0.5 rounded-md shrink-0">
-                {t.device}
-              </span>
             </div>
           </div>
         </SwiperSlide>
