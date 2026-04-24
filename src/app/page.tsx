@@ -3,7 +3,7 @@ import Image from "next/image";
 import {
   Phone, MessageCircle, Smartphone, Battery, Camera,
   Code2, Droplets, Zap, CheckCircle, Clock, MapPin,
-  Star, Shield, ArrowRight, Users, Award, Wrench,
+  Shield, ArrowRight, Users, Award, Wrench,
 } from "lucide-react";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import StatsCounter from "@/components/StatsCounter";
@@ -33,132 +33,97 @@ const whyUs = [
 export default function HomePage() {
   return (
     <>
-      {/* ═══ HERO ═══════════════════════════════════════════ */}
-      <section
-        className="relative overflow-hidden border-b border-gray-100 pt-20"
-        style={{ background: "linear-gradient(145deg, #fdfcff 0%, #f9f7ff 40%, #f3f0ff 100%)" }}
-      >
-        {/* Decorative orbs */}
-        <div
-          className="hero-orb"
-          style={{ width: 600, height: 600, top: -200, right: -150, background: "radial-gradient(circle, rgba(154,91,255,0.10) 0%, transparent 70%)" }}
-        />
-        <div
-          className="hero-orb"
-          style={{ width: 300, height: 300, bottom: -80, left: -60, background: "radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%)" }}
+      {/* ═══ HERO BANNER ════════════════════════════════════ */}
+      <section className="relative w-full overflow-hidden" style={{ minHeight: "92vh" }}>
+        {/* Background image */}
+        <Image
+          src="https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&w=1600&q=85"
+          alt="Mobile repair technician at work"
+          fill
+          className="object-cover object-center"
+          priority
         />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* Dark + purple gradient overlay */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(30,5,69,0.82) 0%, rgba(74,20,140,0.72) 40%, rgba(100,30,180,0.60) 100%)" }} />
 
-            {/* — Left — */}
-            <div>
-              <ShopStatus />
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-24 pb-12 md:pt-28" style={{ minHeight: "92vh" }}>
+          <ShopStatus />
 
-              <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
-                Expert Mobile Repairs<br />
-                <span
-                  style={{ backgroundImage: "linear-gradient(135deg, #9a5bff 0%, #7c3aed 100%)" }}
-                  className="bg-clip-text text-transparent"
-                >
-                  Since 2007.
-                </span>
-              </h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-[1.15] tracking-tight mt-4 mb-4 drop-shadow-lg max-w-3xl">
+            Expert Mobile Repairs
+            <br />
+            <span style={{ backgroundImage: "linear-gradient(135deg, #d8b4fe 0%, #c084fc 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              Since 2007.
+            </span>
+          </h1>
 
-              <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-lg">
-                Karachi&apos;s trusted repair shop for all major brands. Screen, battery, camera, software, water damage — fixed in{" "}
-                <strong className="text-gray-800">30–45 minutes</strong> with a written warranty.
-              </p>
+          <p className="text-purple-100/90 text-sm sm:text-base leading-relaxed mb-7 max-w-lg">
+            Karachi&apos;s trusted repair shop for all major brands. Screen, battery, camera, software &amp; water damage — fixed in{" "}
+            <strong className="text-white">30–45 minutes</strong> with written warranty.
+          </p>
 
-              {/* Buttons */}
-              <div className="flex flex-wrap gap-3 mb-10">
-                <a href={`tel:${PHONE}`} className="btn-primary">
-                  <Phone size={16} /> Call: {PHONE_DISP}
-                </a>
-                <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="btn-green">
-                  <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  WhatsApp Us
-                </a>
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-3 justify-center mb-7">
+            <a
+              href={`tel:${PHONE}`}
+              className="inline-flex items-center gap-2 font-bold text-sm px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-lg"
+              style={{ background: "#9a5bff", color: "#fff" }}
+            >
+              <Phone size={16} /> Call: {PHONE_DISP}
+            </a>
+            <a
+              href={`https://wa.me/${WHATSAPP}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-bold text-sm px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-lg"
+              style={{ background: "#25d366", color: "#fff" }}
+            >
+              <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp Us
+            </a>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+            {[
+              { icon: Shield, text: "Written Warranty" },
+              { icon: CheckCircle, text: "Genuine Parts" },
+              { icon: Clock, text: "30–45 Min Repair" },
+            ].map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-center gap-1.5 text-xs font-medium text-purple-100 bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">
+                <Icon size={12} className="text-purple-300" /> {text}
               </div>
+            ))}
+          </div>
 
-              {/* Trust strip */}
-              <div className="flex flex-wrap items-center gap-4 mb-10">
-                {[
-                  { icon: Shield, text: "Written Warranty" },
-                  { icon: CheckCircle, text: "Genuine Parts" },
-                  { icon: Clock, text: "30–45 Min Repair" },
-                ].map(({ icon: Icon, text }) => (
-                  <div key={text} className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
-                    <Icon size={13} className="text-[#9a5bff]" /> {text}
-                  </div>
-                ))}
+          {/* Stats row */}
+          <div className="flex items-center justify-center divide-x divide-white/20">
+            {[
+              { val: "17+", lbl: "Years" },
+              { val: "50K+", lbl: "Repairs" },
+              { val: "4.9★", lbl: "Rating" },
+              { val: "2", lbl: "Branches" },
+            ].map(({ val, lbl }) => (
+              <div key={lbl} className="text-center px-5 sm:px-8">
+                <p className="text-2xl sm:text-3xl font-extrabold text-white leading-none">{val}</p>
+                <p className="text-purple-300 text-[10px] mt-1 font-semibold uppercase tracking-wider">{lbl}</p>
               </div>
+            ))}
+          </div>
 
-              {/* Locations */}
-              <div className="space-y-2">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">2 Branches in Karachi</p>
-                {[
-                  ["Saddar", "Shop LB-41, City Star Mall"],
-                  ["North Karachi", "Shop 122, Geo Mobile Market"],
-                ].map(([area, addr]) => (
-                  <div key={area} className="flex items-center gap-2 text-sm text-gray-600">
-                    <MapPin size={13} className="text-[#9a5bff] shrink-0" />
-                    <span><strong className="text-gray-800">{area}</strong> — {addr}</span>
-                  </div>
-                ))}
+          {/* Locations */}
+          <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
+            {[
+              ["Saddar", "City Star Mall"],
+              ["North Karachi", "Geo Mobile Market"],
+            ].map(([area, addr]) => (
+              <div key={area} className="flex items-center gap-1.5 text-xs text-purple-100 bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">
+                <MapPin size={11} className="text-purple-300 shrink-0" />
+                <span><strong className="text-white">{area}</strong> — {addr}</span>
               </div>
-            </div>
-
-            {/* — Right — */}
-            <div className="hidden lg:block">
-              <div className="relative">
-                {/* Glow behind image */}
-                <div className="absolute inset-4 bg-gradient-to-br from-violet-300/30 to-purple-400/20 rounded-3xl blur-2xl" />
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-purple-100/60">
-                  <Image
-                    src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80"
-                    alt="Mobile repair technician at work"
-                    width={720}
-                    height={500}
-                    className="w-full h-[490px] object-cover"
-                    priority
-                  />
-                  {/* Dark overlay at bottom */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-
-                  {/* Stats overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-t border-purple-100/40">
-                    {[
-                      { val: "17+", lbl: "Years" },
-                      { val: "50K+", lbl: "Repairs" },
-                      { val: "4.9★", lbl: "Rating" },
-                      { val: "2", lbl: "Branches" },
-                    ].map(({ val, lbl }) => (
-                      <div key={lbl} className="text-center">
-                        <p
-                          className="text-xl font-extrabold leading-none"
-                          style={{ backgroundImage: "linear-gradient(135deg,#9a5bff,#7c3aed)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-                        >
-                          {val}
-                        </p>
-                        <p className="text-gray-400 text-xs mt-0.5 font-medium">{lbl}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Floating badge */}
-                <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-lg border border-purple-100 px-4 py-3 flex items-center gap-2.5">
-                  <div className="w-9 h-9 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center">
-                    <Star size={16} className="text-white fill-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-gray-900">Top Rated Shop</p>
-                    <p className="text-[11px] text-gray-400">Karachi&apos;s #1 Choice</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
