@@ -116,12 +116,12 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="bg-gray-900 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-20 md:pb-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <p className="text-gray-400 text-sm">
             © 2026 <span className="text-[#9a5bff] font-semibold">Memon Mobile Zone</span>. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm">
-            Developed by <a href="https://brandedgecreations.io" target="_blank" rel="noopener noreferrer" className="text-[#9a5bff] font-bold hover:underline">BrandEdge Creations</a>
+            Developed by <a href="#" className="text-[#9a5bff] font-bold hover:underline">Brand Edge Creation</a>
           </p>
           <p className="text-gray-400 text-sm">Established 2007 · Karachi, Pakistan</p>
         </div>

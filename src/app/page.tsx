@@ -128,27 +128,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ STATS ══════════════════════════════════════════ */}
-      <section className="py-14 relative overflow-hidden" style={{ background: "linear-gradient(135deg,#4c1d95 0%,#6d28d9 40%,#7c3aed 70%,#8b5cf6 100%)" }}>
-        {/* subtle pattern */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { val: "17+",  lbl: "Years in Business", sub: "Est. 2007" },
-              { val: "50K+", lbl: "Phones Repaired",   sub: "& counting" },
-              { val: "4.9★", lbl: "Customer Rating",   sub: "Google Reviews" },
-              { val: "100%", lbl: "Warranty Covered",  sub: "Every repair" },
-            ].map(({ val, lbl, sub }) => (
-              <div key={lbl} className="glass-stat">
-                <p className="text-white text-3xl md:text-4xl font-extrabold tracking-tight">{val}</p>
-                <p className="text-purple-100 text-xs font-bold mt-1 uppercase tracking-wide">{lbl}</p>
-                <p className="text-purple-300 text-[10px] mt-0.5">{sub}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* ═══ SERVICES ════════════════════════════════════════ */}
       <section className="py-20 px-4 sm:px-6" style={{ background: "linear-gradient(180deg,#ffffff 0%,#faf8ff 100%)" }}>
